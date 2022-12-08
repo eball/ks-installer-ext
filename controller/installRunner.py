@@ -357,7 +357,7 @@ def resultInfo(resultState=False, api=None):
         private_data_dir=privateDataDir,
         artifact_dir=os.path.join(privateDataDir, 'ks-config'),
         ident='ks-config',
-        quiet=True
+        quiet=False
     )
 
     if ks_config.rc != 0:
@@ -369,7 +369,7 @@ def resultInfo(resultState=False, api=None):
         private_data_dir=privateDataDir,
         artifact_dir=os.path.join(privateDataDir, 'result-info'),
         ident='result',
-        quiet=True
+        quiet=False
     )
 
     if result.rc != 0:
