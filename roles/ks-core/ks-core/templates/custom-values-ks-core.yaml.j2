@@ -26,7 +26,7 @@ image:
   pullPolicy: {{ ks_image_pull_policy }}
 
 config:
-  create: false
+  create: true
 
 console:
   type: {{ common.core.console.type | default('NodePort') }}
