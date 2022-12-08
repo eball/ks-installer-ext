@@ -65,7 +65,6 @@
     - {ns: "kubesphere-controls-system", kind: "service", resource: "default-http-backend", release: "ks-core"}
     - {ns: "kubesphere-system", kind: "secrets", resource: "ks-controller-manager-webhook-cert", release: "ks-core"}
     - {ns: "kubesphere-system", kind: "serviceaccounts", resource: "kubesphere", release: "ks-core"}
-    - {ns: "kubesphere-system", kind: "configmaps", resource: "ks-console-config", release: "ks-core"}
     - {ns: "kubesphere-system", kind: "configmaps", resource: "ks-router-config", release: "ks-core"}
     - {ns: "kubesphere-system", kind: "configmaps", resource: "sample-bookinfo", release: "ks-core"}
     - {ns: "kubesphere-system", kind: "clusterroles", resource: "system:kubesphere-router-clusterrole", release: "ks-core"}
@@ -73,10 +72,8 @@
     - {ns: "kubesphere-system", kind: "clusterrolebindings", resource: "system:kubesphere-cluster-admin", release: "ks-core"}
     - {ns: "kubesphere-system", kind: "clusterrolebindings", resource: "kubesphere", release: "ks-core"}
     - {ns: "kubesphere-system", kind: "services", resource: "ks-apiserver", release: "ks-core"}
-    - {ns: "kubesphere-system", kind: "services", resource: "ks-console", release: "ks-core"}
     - {ns: "kubesphere-system", kind: "services", resource: "ks-controller-manager", release: "ks-core"}
     - {ns: "kubesphere-system", kind: "deployments", resource: "ks-apiserver", release: "ks-core"}
-    - {ns: "kubesphere-system", kind: "deployments", resource: "ks-console", release: "ks-core"}
     - {ns: "kubesphere-system", kind: "deployments", resource: "ks-controller-manager", release: "ks-core"}
     - {ns: "kubesphere-system", kind: "validatingwebhookconfigurations", resource: "users.iam.kubesphere.io", release: "ks-core"}
     - {ns: "kubesphere-system", kind: "validatingwebhookconfigurations", resource: "resourcesquotas.quota.kubesphere.io", release: "ks-core"}

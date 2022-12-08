@@ -8,10 +8,6 @@ ks_apiserver_memory_limit: 1024Mi
 ks_apiserver_cpu_limit: "1"
 ks_apiserver_memory_requests: 100Mi
 ks_apiserver_cpu_requests: 20m
-ks_console_memory_limit: 512Mi
-ks_console_cpu_limit: "1"
-ks_console_memory_requests: 100Mi
-ks_console_cpu_requests: 20m
 
 # Ip address of the Kubernetes skydns service
 skydns_server: "{{ kube_service_addresses|ipaddr('net')|ipaddr(3)|ipaddr('address') }}"

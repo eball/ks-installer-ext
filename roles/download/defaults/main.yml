@@ -58,8 +58,6 @@ ks_update_repo: "{{ base_repo }}{{ namespace_override | default('kubesphere') }}
 ks_update_tag: v3.0.0
 ks_alerting_migration_repo: "{{ base_repo }}{{ namespace_override | default('kubespheredev') }}/ks-alerting-migration"
 ks_alerting_migration_tag: "v3.1.0"
-ks_console_repo: "{{ base_repo }}{{ namespace_override | default('kubesphere') }}/ks-console"
-ks_console_tag: "{{ ks_version }}"
 ks_kubectl_repo: "{{ base_repo }}{{ namespace_override | default('kubesphere') }}/kubectl"
 ks_kubectl_tag: v1.22.0
 # kubectl versions
@@ -314,11 +312,6 @@ images:
     sha256: "{{ ks_apiserver_checksum|default(None) }}"
     group: "kubesphere-images"
 
-  ks_console:
-    repo: "{{ ks_console_repo }}"
-    tag: "{{ ks_console_tag }}"
-    sha256: "{{ ks_console_checksum|default(None) }}"
-    group: "kubesphere-images"
 
   ks_controller_manager:
     repo: "{{ ks_controller_manager_repo }}"
