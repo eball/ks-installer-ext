@@ -99,6 +99,7 @@
     src: "{{ item }}"
     dest: "{{ kubesphere_dir }}/"
   loop:
+    - "ks-core-config"
     - "ks-core"
 
 - name: KubeSphere | Creating manifests
@@ -113,7 +114,14 @@
   shell: "{{ bin_dir }}/kubectl apply -f {{ item }}"
   ignore_errors: false
   with_fileglob:
-    - "{{ kubesphere_dir }}/ks-core/crds/*"
+    - "{{ kubesphere_dir }}/ks-core-config/crds/*"
+
+- name: KubeSphere | Creating ks-core-config
+  shell: >
+    {{ bin_dir }}/helm upgrade --install ks-core-config
+    {{ kubesphere_dir }}/ks-core-config/
+    -f {{ kubesphere_dir }}/ks-core/custom-values-ks-core.yaml
+    --namespace kubesphere-system
 
 - name: KubeSphere | Creating ks-core
   shell: >
