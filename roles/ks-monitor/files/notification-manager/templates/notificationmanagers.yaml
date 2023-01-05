@@ -13,6 +13,9 @@ spec:
   imagePullPolicy: {{ .Values.notificationmanager.image.pullPolicy }}
   serviceAccountName: notification-manager-sa
   portName: webhook
+  groupLabels:
+    - alertname
+    - namespace
   nodeSelector: 
     {{- toYaml .Values.notificationmanager.nodeSelector | nindent 4 }}
   affinity: 

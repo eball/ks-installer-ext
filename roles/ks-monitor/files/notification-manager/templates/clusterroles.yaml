@@ -18,6 +18,14 @@ rules:
 - apiGroups:
   - ""
   resources:
+  - configmaps
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
   - secrets
   verbs:
   - get
@@ -41,6 +49,8 @@ rules:
   - configs
   - notificationmanagers
   - receivers
+  - routers
+  - silences
   verbs:
   - create
   - delete
@@ -52,15 +62,21 @@ rules:
 - apiGroups:
   - notification.kubesphere.io
   resources:
+  - notificationmanagers/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - notification.kubesphere.io
+  resources:
   - notificationmanagers/status
   verbs:
   - get
   - patch
   - update
 - apiGroups:
-  - rbac.authorization.k8s.io
+  - '*'
   resources:
-  - rolebindings
+  - '*'
   verbs:
   - get
   - list
