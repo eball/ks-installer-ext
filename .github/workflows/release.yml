@@ -1,9 +1,10 @@
 on:
-  push:
-    # Sequence of patterns matched against refs/tags
-    tags:
-    - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
-name: Build Release
+  workflow_dispatch:
+    inputs:
+      tags:
+        description: 'Release Tags'
+
+name: Build Ks-Installer Release
 
 env:
   # TODO: Change variable to your image's name.
@@ -16,9 +17,6 @@ jobs:
     if: github.repository	== 'eball/ks-installer-ext'
     steps:
       - uses: actions/checkout@v2
-      - name: Get Version
-        id: get_version
-        run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
 
       - name: Create Release
         id: create_release
@@ -83,6 +81,6 @@ jobs:
 
       - name: Push image
         run: |
-          IMAGE=$IMAGE_REPO/$IMAGE_NAME:${{ steps.get_version.outputs.VERSION }}
+          IMAGE=$IMAGE_REPO/$IMAGE_NAME:${{ github.event.inputs.tags }}
           docker buildx build --platform linux/amd64,linux/arm64 --push -f Dockerfile.complete -t $IMAGE .
           echo "Push $IMAGE success!"
