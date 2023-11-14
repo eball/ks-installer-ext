@@ -21,6 +21,12 @@ spec:
       sourceLabels:
       - label_kubesphere_io_workspace
       targetLabel: workspace
+    - action: replace
+      regex: (.*)
+      replacement: $1
+      sourceLabels:
+        - label_bytetrade_io_ns_owner
+      targetLabel: user
     port: https-main
     relabelings:
     - action: labeldrop
