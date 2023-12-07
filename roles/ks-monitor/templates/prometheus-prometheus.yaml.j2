@@ -87,8 +87,8 @@ spec:
 {% endif %}
   resources:
     limits:
-      cpu: "{{ monitoring.prometheus.resources.limits.cpu | default(monitoring.prometheus.limits.cpu) | default("4") }}"
-      memory: {{ monitoring.prometheus.resources.limits.memory | default(monitoring.prometheus.limits.memory) | default("16Gi") }}
+      cpu: "{{ monitoring.prometheus.resources.limits.cpu | default(monitoring.prometheus.limits.cpu) | default("1") }}"
+      memory: {{ monitoring.prometheus.resources.limits.memory | default(monitoring.prometheus.limits.memory) | default("4Gi") }}
     requests:
       cpu: {{ monitoring.prometheus.resources.requests.cpu | default(monitoring.prometheus.requests.cpu) | default("200m") }}
       memory: {{ monitoring.prometheus.resources.requests.memory | default(monitoring.prometheus.requests.memory) | default("400Mi") }}
