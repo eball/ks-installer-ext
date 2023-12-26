@@ -52,7 +52,7 @@ spec:
           kube_node_info,
           kube_(hpa|replicaset|replicationcontroller)_.+_generation
         - --metric-labels-allowlist=namespaces=[kubesphere.io/workspace,bytetrade.io/ns-owner]
-        image: kubesphere/kube-state-metrics:v2.3.0
+        image: bytetrade/kube-state-metrics:v2.3.0-ext
         name: kube-state-metrics
         resources:
           limits:
